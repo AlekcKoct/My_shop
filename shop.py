@@ -20,8 +20,13 @@ class Store:
         self.name = "Продукты"
         print(f"Адрес: {self.address}")
         print("Ассортимент товаров:")
-        for item in self.items:
-            print(f"- {item}")
+        if store1 != "":
+            for item,item1 in self.items.items():
+                item = item +": "+ item1
+                print(f"- {item}")
+        else:
+            for item in self.items:
+                print(f"- {item}")
 
     def info_new(self):
         """
@@ -35,7 +40,6 @@ class Store:
         """
         Информация о магазине.
         """
-
         print(f"\n{self.name}")
         self.name = "Хозтовары"
         print(f"Адрес: {self.address}")
@@ -60,8 +64,10 @@ class Store:
         else:
             print(f"Товар {item1} не найден в ассортименте магазина {self.name}.")
 
-store1 = Store("Магазин для детей", "ул. Сиверса, 210", ["Мяч: 30 руб", "Кукла: 120 руб", "Конструктор: 150 руб"])
+store1 = Store("Магазин для детей", "ул. Сиверса, 210", {'Мяч': '30 руб', 'Кукла': '120 руб', 'Конструктор': '150 руб'})
+# вывод товаа шз словаря
 store1.info()
+store1 = ""
 
 store2 = Store("Магазин Продукты", "пр. Буденновский, 122", ["Хлеб: 30 руб", "Молоко: 45 руб", "Яблоки"])
 store2.info()
@@ -71,6 +77,6 @@ store2.info_new()
 
 store3 = Store("Магазин Хозтовары", "пр. Буденновский, 233", ["Лопата: 130 руб", "Молоток: 200 руб", "Перфоратор: 2300 руб"])
 store3.info1()
-store3.add_item("Труба: 75 руб")
+store3.add_item("Труба 2м: 75 руб")
 store3.info_new()
 
